@@ -1,0 +1,4 @@
+FROM adoptopenjdk/openjdk11:alpine-jre
+RUN  mkdir -p /opt/drportal/dynamo
+COPY lib/* /opt/drportal/dynamo/
+CMD  java -cp $(echo /opt/drportal/dynamo/*.jar | tr ' ' ':') aws.proserve.bcs.dr.dynamo.ReplicateTable
